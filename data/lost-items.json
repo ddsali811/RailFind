@@ -1,0 +1,401 @@
+[
+  {
+    "id": "RF001",
+    "name": "黑色折疊雨傘",
+    "category": "雨傘",
+    "color": "黑色",
+    "brand": "無品牌",
+    "features": [
+      "折疊",
+      "銀色手把",
+      "附傘套"
+    ],
+    "agency": "北捷",
+    "station": "信義安和站",
+    "foundDate": "2026-06-18",
+    "status": "待認領",
+    "contact": "02-0000-1001",
+    "image": "pic/RF001.png",
+    "description": "黑色折疊雨傘，傘套邊緣有些微磨損，於月台座椅旁拾獲。"
+  },
+  {
+    "id": "RF002",
+    "name": "深灰長柄雨傘",
+    "category": "雨傘",
+    "color": "灰色",
+    "brand": "無品牌",
+    "features": [
+      "長柄",
+      "木質握把",
+      "透明掛繩"
+    ],
+    "agency": "台鐵",
+    "station": "台中站",
+    "foundDate": "2026-06-17",
+    "status": "待認領",
+    "contact": "04-0000-2202",
+    "image": "pic/RF002.png",
+    "description": "深灰色長柄雨傘，木質握把，於候車區拾獲。"
+  },
+  {
+    "id": "RF003",
+    "name": "藍色短夾",
+    "category": "皮夾",
+    "color": "藍色",
+    "brand": "無品牌",
+    "features": [
+      "短夾",
+      "尼龍材質",
+      "魔鬼氈"
+    ],
+    "agency": "高鐵",
+    "station": "左營站",
+    "foundDate": "2026-06-16",
+    "status": "待認領",
+    "contact": "07-0000-3303",
+    "image": "pic/RF003.png",
+    "description": "藍色尼龍短夾，內有少量零錢，無證件。"
+  },
+  {
+    "id": "RF004",
+    "name": "白色保溫水壺",
+    "category": "水壺",
+    "color": "白色",
+    "brand": "Thermos",
+    "features": [
+      "保溫瓶",
+      "500ml",
+      "有刮痕"
+    ],
+    "agency": "北捷",
+    "station": "台北車站",
+    "foundDate": "2026-06-15",
+    "status": "已聯繫",
+    "contact": "02-0000-1004",
+    "image": "pic/RF004.png",
+    "description": "白色膳魔師保溫瓶，瓶身底部有輕微摔傷刮痕。"
+  },
+  {
+    "id": "RF005",
+    "name": "黑色皮革長夾",
+    "category": "皮夾",
+    "color": "黑色",
+    "brand": "COACH",
+    "features": [
+      "長夾",
+      "拉鍊",
+      "金色標誌"
+    ],
+    "agency": "台鐵",
+    "station": "板橋站",
+    "foundDate": "2026-06-15",
+    "status": "待認領",
+    "contact": "02-0000-2205",
+    "image": "pic/RF005.png",
+    "description": "黑色皮革長夾，拉鍊完好，內含多張發票與信用卡。"
+  },
+  {
+    "id": "RF006",
+    "name": "白色無線耳機",
+    "category": "3C電子",
+    "color": "白色",
+    "brand": "Apple",
+    "features": [
+      "AirPods",
+      "保護套",
+      "貓咪吊飾"
+    ],
+    "agency": "北捷",
+    "station": "市政府站",
+    "foundDate": "2026-06-14",
+    "status": "待認領",
+    "contact": "02-0000-1006",
+    "image": "pic/RF006.png",
+    "description": "白色無線耳機附貓咪造型軟膠保護套，右耳機有些許髒污。"
+  },
+  {
+    "id": "RF007",
+    "name": "紅色飲料提袋",
+    "category": "袋子",
+    "color": "紅色",
+    "brand": "無品牌",
+    "features": [
+      "帆布",
+      "柴犬刺繡",
+      "雙杯袋"
+    ],
+    "agency": "中捷",
+    "station": "文心森林公園站",
+    "foundDate": "2026-06-14",
+    "status": "已領回",
+    "contact": "04-0000-4407",
+    "image": "pic/RF007.png",
+    "description": "紅色帆布材質飲料袋，正面有醒目的柴犬刺繡圖樣。"
+  },
+  {
+    "id": "RF008",
+    "name": "銀色鑰匙一串",
+    "category": "鑰匙",
+    "color": "銀色",
+    "brand": "無品牌",
+    "features": [
+      "三支鑰匙",
+      "感應扣",
+      "動漫吊飾"
+    ],
+    "agency": "台鐵",
+    "station": "新竹站",
+    "foundDate": "2026-06-13",
+    "status": "待認領",
+    "contact": "03-0000-2208",
+    "image": "pic/RF008.png",
+    "description": "共有三支傳統鑰匙、一個藍色門禁感應扣與一個動漫壓克力吊飾。"
+  },
+  {
+    "id": "RF009",
+    "name": "透明外殼悠遊卡",
+    "category": "證件",
+    "color": "透明",
+    "brand": "悠遊卡",
+    "features": [
+      "學生卡",
+      "卡套",
+      "伸縮繩"
+    ],
+    "agency": "北捷",
+    "station": "公館站",
+    "foundDate": "2026-06-13",
+    "status": "待認領",
+    "contact": "02-0000-1009",
+    "image": "pic/RF009.png",
+    "description": "晶片悠遊卡學生卡，裝在透明硬殼卡套內，附帶黑色伸縮長繩。"
+  },
+  {
+    "id": "RF010",
+    "name": "灰色連帽外套",
+    "category": "衣物",
+    "color": "灰色",
+    "brand": "UNIQLO",
+    "features": [
+      "L號",
+      "拉鍊款式",
+      "棉質"
+    ],
+    "agency": "高鐵",
+    "station": "桃園站",
+    "foundDate": "2026-06-12",
+    "status": "待認領",
+    "contact": "03-0000-3310",
+    "image": "pic/RF010.png",
+    "description": "灰色素面連帽外套，L號，左側口袋內有一張當日乘車票根。"
+  },
+  {
+    "id": "RF011",
+    "name": "藍色雙肩背包",
+    "category": "包包",
+    "color": "藍色",
+    "brand": "Nike",
+    "features": [
+      "運動型",
+      "大容量",
+      "雙側網袋"
+    ],
+    "agency": "台鐵",
+    "station": "高雄站",
+    "foundDate": "2026-06-12",
+    "status": "待認領",
+    "contact": "07-0000-2211",
+    "image": "pic/RF011.png",
+    "description": "深藍色雙肩運動背包，內裝有換洗衣物與一本筆記本。"
+  },
+  {
+    "id": "RF012",
+    "name": "金屬細框眼鏡",
+    "category": "眼鏡",
+    "color": "金色",
+    "brand": "OWNDAYS",
+    "features": [
+      "圓框",
+      "黑盒",
+      "附眼鏡布"
+    ],
+    "agency": "北捷",
+    "station": "中山站",
+    "foundDate": "2026-06-11",
+    "status": "待認領",
+    "contact": "02-0000-1012",
+    "image": "pic/RF012.png",
+    "description": "金色金屬細圓框眼鏡，放置在原廠黑色硬殼眼鏡盒中。"
+  },
+  {
+    "id": "RF013",
+    "name": "黑色行動電源",
+    "category": "3C電子",
+    "color": "黑色",
+    "brand": "ASUS",
+    "features": [
+      "10000mAh",
+      "自帶線",
+      "表面磨損"
+    ],
+    "agency": "桃捷",
+    "station": "高鐵桃園站",
+    "foundDate": "2026-06-11",
+    "status": "待認領",
+    "contact": "03-0000-5513",
+    "image": "pic/RF013.png",
+    "description": "黑色方形行動電源，表面有明顯使用留下的細微刮痕。"
+  },
+  {
+    "id": "RF014",
+    "name": "粉紅色防刮短夾",
+    "category": "皮夾",
+    "color": "粉紅色",
+    "brand": "Kate Spade",
+    "features": [
+      "防刮牛皮",
+      "鈕扣式",
+      "多卡槽"
+    ],
+    "agency": "北捷",
+    "station": "西門站",
+    "foundDate": "2026-06-10",
+    "status": "已聯繫",
+    "contact": "02-0000-1014",
+    "image": "pic/RF014.png",
+    "description": "粉紅色鈕扣式短夾，內有身分證，已依資料聯繫失主。"
+  },
+  {
+    "id": "RF015",
+    "name": "綠色不鏽鋼水壺",
+    "category": "水壺",
+    "color": "綠色",
+    "brand": "Elephant Cuppa",
+    "features": [
+      "大容量",
+      "提把蓋",
+      "附吸管"
+    ],
+    "agency": "中捷",
+    "station": "高鐵台中站",
+    "foundDate": "2026-06-10",
+    "status": "待認領",
+    "contact": "04-0000-4415",
+    "image": "pic/RF015.png",
+    "description": "大象杯綠色款，杯身有些許茶垢痕跡，於詢問處旁座位拾獲。"
+  },
+  {
+    "id": "RF016",
+    "name": "藍色抗UV折疊傘",
+    "category": "雨傘",
+    "color": "藍色",
+    "brand": "無品牌",
+    "features": [
+      "自動傘",
+      "內層黑膠",
+      "木頭握把"
+    ],
+    "agency": "台鐵",
+    "station": "花蓮站",
+    "foundDate": "2026-06-09",
+    "status": "待認領",
+    "contact": "03-0000-2216",
+    "image": "pic/RF016.png",
+    "description": "深藍色自動折疊傘，木頭材質握把有些微擦傷。"
+  },
+  {
+    "id": "RF017",
+    "name": "透明藍色筆袋",
+    "category": "文具",
+    "color": "藍色",
+    "brand": "無品牌",
+    "features": [
+      "網格",
+      "塑膠拉鍊",
+      "含原子筆"
+    ],
+    "agency": "北捷",
+    "station": "忠孝復興站",
+    "foundDate": "2026-06-08",
+    "status": "已領回",
+    "contact": "02-0000-1017",
+    "image": "pic/RF017.png",
+    "description": "透明藍色網格筆袋，內有原子筆三支與立可帶一個。"
+  },
+  {
+    "id": "RF018",
+    "name": "黑色棒球帽",
+    "category": "衣物",
+    "color": "黑色",
+    "brand": "Adidas",
+    "features": [
+      "可調式",
+      "白色電繡",
+      "鴨舌帽"
+    ],
+    "agency": "北捷",
+    "station": "劍潭站",
+    "foundDate": "2026-06-08",
+    "status": "待認領",
+    "contact": "02-0000-1020",
+    "image": "pic/RF018.png",
+    "description": "黑色棒球帽，正面有白色經典品牌標誌，後方扣帶可調整。"
+  },
+  {
+    "id": "RF019",
+    "name": "白色帆布鞋袋",
+    "category": "包包",
+    "color": "白色",
+    "brand": "Nike",
+    "features": [
+      "束口袋",
+      "鞋袋",
+      "黑色標誌"
+    ],
+    "agency": "台鐵",
+    "station": "松山站",
+    "foundDate": "2026-06-07",
+    "status": "待認領",
+    "contact": "02-0000-2219",
+    "image": "pic/RF019.png",
+    "description": "白色束口鞋袋，外側有黑色品牌標誌。"
+  },
+  {
+    "id": "RF020",
+    "name": "棕色真皮短夾",
+    "category": "皮夾",
+    "color": "棕色",
+    "brand": "無品牌",
+    "features": [
+      "真皮",
+      "復古造型",
+      "邊緣脫線"
+    ],
+    "agency": "高鐵",
+    "station": "台中站",
+    "foundDate": "2026-06-07",
+    "status": "待認領",
+    "contact": "04-0000-3320",
+    "image": "pic/RF020.png",
+    "description": "復古深棕色真皮男用短夾，邊角處有些微磨損與輕微脫線。"
+  },
+  {
+    "id": "RF021",
+    "name": "紫色雙肩背包",
+    "category": "包包",
+    "color": "紫色",
+    "brand": "無品牌",
+    "features": [
+      "雙肩",
+      "帆布",
+      "白色吊飾"
+    ],
+    "agency": "北捷",
+    "station": "台北車站",
+    "foundDate": "2026-06-21",
+    "status": "已聯繫",
+    "contact": "0212345678",
+    "emoji": "🎒",
+    "description": "紫色帆布雙肩背包，附白色兔子吊飾。"
+  }
+]

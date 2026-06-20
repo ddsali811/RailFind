@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RailFind｜遺失物詳細資料</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="{{ url_for('index') }}" aria-label="RailFind 首頁">
+      <span class="brand-mark">RF</span>
+      <span>
+        <strong>RailFind</strong>
+        <small>遺失物詳細資料</small>
+      </span>
+    </a>
+    <nav class="nav-links" aria-label="主要導覽">
+      <a href="{{ url_for('index') }}">返回查詢</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="panel detail-panel">
+      <a class="back-link" href="{{ url_for('index') }}">← 返回查詢結果</a>
+      <div id="detailContainer" class="detail-container" aria-live="polite">
+        <div class="state">資料載入中，請稍候…</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© RailFind｜鐵道遺失物查詢平台</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+.env
+app_backup.py
+
+# 整合前的舊版備份；Flask正式使用 templates/ 與 static/
+/assets/
+/pic/
+/index.html
+/detail.html
+/README_資料庫照片已連接.txt

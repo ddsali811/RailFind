@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+{% block title %}遺失物列表 · RailFind 後台{% endblock %}
+{% block topbar_title %}遺失物列表{% endblock %}
+
+{% block content %}
+<div class="stats-row">
+  <div class="stat-card">
+    <div class="stat-icon">📦</div>
+    <div><div class="stat-num">{{ counts.total }}</div><div class="stat-label">全部物品</div></div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon">⏳</div>
+    <div><div class="stat-num stat-num-warning">{{ counts['待認領'] }}</div><div class="stat-label">待認領</div></div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon">📞</div>
+    <div><div class="stat-num stat-num-contacted">{{ counts['已聯繫'] }}</div><div class="stat-label">已聯繫</div></div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon">✅</div>
+    <div><div class="stat-num stat-num-success">{{ counts['已領回'] }}</div><div class="stat-label">已領回</div></div>
+  </div>
+</div>
+
+<div class="toolbar">
+  <form method="GET" style="display:contents">
+    <div class="search-box">
+      <input type="text" name="keyword" placeholder="搜尋名稱、品牌、特徵…" value="{{ keyword }}">
+      <button type="submit">🔍</button>
+    </div>
+    <select name="status" class="fsel" onchange="this.form.submit()">
+      <option value="">全部狀態</option>
+      {% for s in statuses %}
+      <option value="{{ s }}" {% if status_filter == s %}selected{% endif %}>{{ s }}</option>
+      {% endfor %}
+    </select>
+    <select name="category" class="fsel" onchange="this.form.submit()">
+      <option value="">全部類別</option>
+      {% for cat in categories %}
+      <option value="{{ cat }}" {% if category_filter == cat %}selected{% endif %}>{{ cat }}</option>
+      {% endfor %}
+    </select>
+    {% if keyword or status_filter or category_filter %}
+    <a href="{{ url_for('lost_items') }}" class="btn btn-secondary btn-sm">✕ 清除</a>
+    {% endif %}
+  </form>
+  <div class="spacer"></div>
+  <a href="{{ url_for('new_item') }}" class="btn btn-primary">＋ 新增遺失物</a>
+</div>
+
+<div class="table-card">
+  <div class="table-wrap">
+    {% if items %}
+    <table>
+      <thead>
+        <tr>
+          <th>編號</th>
+          <th>物品</th>
+          <th>機構／站點</th>
+          <th>拾獲日期</th>
+          <th>狀態</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in items %}
+        {% set sid = item.id | replace('RF','') %}
+        <tr>
+          <td class="muted-id">{{ item.id }}</td>
+          <td>
+            <div class="item-name">{{ item.emoji or '📦' }} {{ item.name }}</div>
+            <div class="item-meta">
+              {{ item.category }}
+              {% if item.color %} · {{ item.color }}{% endif %}
+              {% if item.brand and item.brand != '無品牌' %} · {{ item.brand }}{% endif %}
+            </div>
+          </td>
+          <td class="agency-cell">{{ item.agency }}<br><span class="muted-small">{{ item.station }}</span></td>
+          <td class="small-muted">{{ item.foundDate }}</td>
+          <td>
+            {% set sc = 'waiting' if item.status == '待認領' else ('contacted' if item.status == '已聯繫' else 'returned') %}
+            <span class="sbadge sbadge-{{ sc }}" id="badge-{{ item.id }}">{{ item.status }}</span>
+          </td>
+          <td>
+            <div class="actions">
+              <select class="qstatus" onchange="updateStatus('{{ item.id }}', this.value, this)">
+                {% for s in statuses %}
+                <option value="{{ s }}" {% if item.status == s %}selected{% endif %}>{{ s }}</option>
+                {% endfor %}
+              </select>
+              <a href="{{ url_for('edit_item', item_id=item.id) }}" class="btn btn-secondary btn-sm">✏️</a>
+              <form method="POST" action="{{ url_for('delete_item', item_id=item.id) }}" style="display:inline"
+                    onsubmit="return confirm('確定刪除「{{ item.name }}」？')">
+                <button type="submit" class="btn btn-danger btn-sm">🗑️</button>
+              </form>
+            </div>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <div class="empty-state">
+      <div class="empty-icon">📭</div>
+      <div class="empty-title">找不到符合條件的遺失物</div>
+      <p class="small-paragraph">
+        {% if keyword or status_filter or category_filter %}
+          <a href="{{ url_for('lost_items') }}">清除篩選</a> 或嘗試其他條件
+        {% else %}
+          目前尚無資料，<a href="{{ url_for('new_item') }}">立即新增</a>
+        {% endif %}
+      </p>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+const BADGE_CLASS = { '待認領':'sbadge-waiting', '已聯繫':'sbadge-contacted', '已領回':'sbadge-returned' };
+
+async function updateStatus(id, newStatus, sel) {
+  const res  = await fetch(`/admin/items/${id}/status`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ status: newStatus })
+  });
+  const data = await res.json();
+  if (data.ok) {
+    const badge = document.getElementById('badge-' + id);
+    badge.className = 'sbadge ' + BADGE_CLASS[newStatus];
+    badge.textContent = newStatus;
+    showToast('✓ 狀態已更新為「' + newStatus + '」');
+    sel.dataset.original = newStatus;
+  } else {
+    showToast('❌ 更新失敗');
+    sel.value = sel.dataset.original;
+  }
+}
+
+document.querySelectorAll('.qstatus').forEach(s => s.dataset.original = s.value);
+</script>
+{% endblock %}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}RailFind 機構後台{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+<body class="admin-body">
+<div class="layout">
+  <header class="topbar">
+    <a class="brand" href="{{ url_for('index') }}" aria-label="RailFind 首頁">
+      <span class="brand-mark">RF</span>
+      <span>
+        <strong>RailFind</strong>
+        <small>機構後台管理系統</small>
+      </span>
+    </a>
+    <nav class="nav-links" aria-label="主要導覽">
+      <a href="{{ url_for('lost_items') }}" class="{% if request.endpoint == 'lost_items' %}active{% endif %}">遺失物列表</a>
+      <a href="{{ url_for('new_item') }}" class="{% if request.endpoint == 'new_item' %}active{% endif %}">新增遺失物</a>
+    </nav>
+  </header>
+
+  <main class="admin-main">
+    <div class="admin-panel">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <ul class="flash-list">
+            {% for cat, msg in messages %}
+              <li class="flash-msg flash-{{ cat }}">{{ msg }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
+
+      {% block content %}{% endblock %}
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>RailFind MVP </p>
+  </footer>
+
+  <div id="toast"></div>
+  <script>
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2800);
+  }
+  </script>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

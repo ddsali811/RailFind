@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% block title %}新增遺失物 · RailFind 後台{% endblock %}
+{% block topbar_title %}新增遺失物{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <a href="{{ url_for('lost_items') }}" class="page-back">← 返回列表</a>
+  <div class="page-title">新增遺失物</div>
+</div>
+
+<div class="form-card">
+  <form method="POST" novalidate>
+
+    <div class="fsection">基本資訊</div>
+    <div class="fgrid">
+      <div class="fgroup">
+        <label for="name">物品名稱 <span class="req">*</span></label>
+        <input type="text" id="name" name="name" placeholder="例：黑色折疊雨傘"
+               value="{{ form_data.get('name','') }}"
+               class="{% if errors.name %}has-error{% endif %}">
+        {% if errors.name %}<p class="ferr">⚠ {{ errors.name }}</p>{% endif %}
+      </div>
+
+      <div class="fgroup">
+        <label for="category">類別 <span class="req">*</span></label>
+        <select id="category" name="category" class="{% if errors.category %}has-error{% endif %}">
+          <option value="">請選擇</option>
+          {% for cat in categories %}
+          <option value="{{ cat }}" {% if form_data.get('category') == cat %}selected{% endif %}>{{ cat }}</option>
+          {% endfor %}
+        </select>
+        {% if errors.category %}<p class="ferr">⚠ {{ errors.category }}</p>{% endif %}
+      </div>
+
+      <div class="fgroup">
+        <label for="color">顏色</label>
+        <select id="color" name="color">
+          <option value="">不確定</option>
+          {% for c in colors %}
+          <option value="{{ c }}" {% if form_data.get('color') == c %}selected{% endif %}>{{ c }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="fgroup">
+        <label for="brand">品牌</label>
+        <input type="text" id="brand" name="brand" placeholder="不明則留空"
+               value="{{ form_data.get('brand','') }}">
+      </div>
+
+      <div class="fgroup full">
+        <label for="features">外觀特徵（以「、」分隔）</label>
+        <input type="text" id="features" name="features" placeholder="例：折疊、銀色手把、附傘套"
+               value="{{ form_data.get('features','') }}">
+      </div>
+
+      <div class="fgroup full">
+        <label for="description">物品描述</label>
+        <textarea id="description" name="description" placeholder="詳細描述，方便民眾辨識">{{ form_data.get('description','') }}</textarea>
+      </div>
+    </div>
+
+    <div class="fsection">拾獲資訊</div>
+    <div class="fgrid">
+      <div class="fgroup">
+        <label for="agency">拾獲機構 <span class="req">*</span></label>
+        <select id="agency" name="agency" class="{% if errors.agency %}has-error{% endif %}">
+          <option value="">請選擇</option>
+          {% for ag in agencies %}
+          <option value="{{ ag }}" {% if form_data.get('agency') == ag %}selected{% endif %}>{{ ag }}</option>
+          {% endfor %}
+        </select>
+        {% if errors.agency %}<p class="ferr">⚠ {{ errors.agency }}</p>{% endif %}
+      </div>
+
+      <div class="fgroup">
+        <label for="station">拾獲站點 <span class="req">*</span></label>
+        <input type="text" id="station" name="station" placeholder="例：信義安和站"
+               value="{{ form_data.get('station','') }}"
+               class="{% if errors.station %}has-error{% endif %}">
+        {% if errors.station %}<p class="ferr">⚠ {{ errors.station }}</p>{% endif %}
+      </div>
+
+      <div class="fgroup">
+        <label for="foundDate">拾獲日期 <span class="req">*</span></label>
+        <input type="date" id="foundDate" name="foundDate"
+               value="{{ form_data.get('foundDate','') }}"
+               class="{% if errors.foundDate %}has-error{% endif %}">
+        {% if errors.foundDate %}<p class="ferr">⚠ {{ errors.foundDate }}</p>{% endif %}
+      </div>
+
+      <div class="fgroup">
+        <label for="contact">聯絡電話 <span class="req">*</span></label>
+        <input type="tel" id="contact" name="contact" placeholder="例：02-0000-1001"
+               value="{{ form_data.get('contact','') }}"
+               class="{% if errors.contact %}has-error{% endif %}">
+        {% if errors.contact %}<p class="ferr">⚠ {{ errors.contact }}</p>{% endif %}
+      </div>
+    </div>
+
+    <div class="factions">
+      <button type="submit" class="btn btn-primary">＋ 儲存遺失物</button>
+      <a href="{{ url_for('lost_items') }}" class="btn btn-secondary">取消</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RailFind｜鐵道遺失物查詢</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="{{ url_for('index') }}" aria-label="RailFind 首頁">
+      <span class="brand-mark">RF</span>
+      <span>
+        <strong>RailFind</strong>
+        <small>鐵道遺失物查詢平台</small>
+      </span>
+    </a>
+    <nav class="nav-links" aria-label="主要導覽">
+      <a href="#search-section">立即查詢</a>
+      <a href="#how-it-works">使用方式</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">RailFind</p>
+        <h1>找回遺失物，
+          <span class="headline-accent">更快、更清楚</span>
+        </h1>
+        <p class="hero-text">
+          輸入物品名稱、顏色、站點或特徵，快速查找可能的遺失物，
+          並查看拾獲地點、聯絡方式與目前狀態。
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#search-section">開始查詢</a>
+          <a class="btn ghost" href="#how-it-works">查看使用方式</a>
+        </div>
+      </div>
+      <div class="hero-card" aria-hidden="true">
+        <div class="mock-phone">
+          <div class="phone-notch"></div>
+          <div class="phone-title">查詢結果預覽</div>
+          <div class="mini-card">
+            <span class="mini-score">92%</span>
+            <span>黑色折疊雨傘</span>
+          </div>
+          <div class="mini-card muted">
+            <span class="mini-score">81%</span>
+            <span>藍色短夾</span>
+          </div>
+          <div class="mini-card muted">
+            <span class="mini-score">74%</span>
+            <span>白色保溫水壺</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="search-section" class="panel search-panel">
+      <div class="section-heading compact-heading">
+        <h2>遺失物查詢</h2>
+        <p>可直接輸入關鍵字，或搭配狀態、類別、站點篩選結果。</p>
+      </div>
+
+      <form id="searchForm" class="search-form" novalidate>
+        <label for="keyword">輸入關鍵字</label>
+        <div class="search-row">
+          <input id="keyword" name="keyword" type="search" placeholder="例如：黑色雨傘、藍色皮夾、Apple、台北車站" autocomplete="off" />
+          <button class="btn primary" type="submit">查詢</button>
+        </div>
+        <p id="formMessage" class="form-message" role="alert"></p>
+
+        <div class="filters" aria-label="篩選條件">
+          <label>
+            類別
+            <select id="categoryFilter" name="category"><option value="">全部類別</option></select>
+          </label>
+          <label>
+            狀態
+            <select id="statusFilter" name="status">
+              <option value="">全部狀態</option>
+              <option value="待認領">待認領</option>
+              <option value="已聯繫">已聯繫</option>
+              <option value="已領回">已領回</option>
+            </select>
+          </label>
+          <label>
+            機構／站點
+            <select id="agencyFilter" name="agency"><option value="">全部站點</option></select>
+          </label>
+        </div>
+      </form>
+
+      <div class="quick-searches">
+        <span>快速查詢：</span>
+        <button type="button" data-query="黑色雨傘">黑色雨傘</button>
+        <button type="button" data-query="藍色皮夾">藍色皮夾</button>
+        <button type="button" data-query="Apple">Apple</button>
+        <button type="button" data-query="台北車站">台北車站</button>
+      </div>
+    </section>
+
+    <section class="panel results-panel" aria-live="polite">
+      <div class="results-header">
+        <div>
+          <h2>查詢結果</h2>
+        </div>
+        <p id="resultSummary" class="result-summary">請輸入關鍵字或選擇篩選條件開始查詢。</p>
+      </div>
+      <div id="activeFilters" class="active-filters hidden"></div>
+      <div id="loadingState" class="state hidden">資料載入中，請稍候…</div>
+      <div id="emptyState" class="state hidden">
+        <strong>找不到符合條件的遺失物</strong>
+        <p>可以改用其他關鍵字，或調整類別、狀態與站點條件後再查詢。</p>
+      </div>
+      <div id="errorState" class="state error hidden">
+        <strong>查詢發生問題</strong>
+        <p>請稍後再試，或確認資料來源是否正常。</p>
+      </div>
+      <div id="resultsList" class="results-grid"></div>
+    </section>
+
+    <section id="how-it-works" class="info-grid">
+      <article class="info-card">
+        <span class="step-number">01</span>
+        <h3>輸入條件</h3>
+        <p>輸入物品名稱、顏色、站點或特徵，也可以直接使用篩選條件縮小範圍。</p>
+      </article>
+      <article class="info-card">
+        <span class="step-number">02</span>
+        <h3>查看排序結果</h3>
+        <p>系統會依據關聯程度整理結果，協助你更快找到可能的遺失物。</p>
+      </article>
+      <article class="info-card">
+        <span class="step-number">03</span>
+        <h3>查看詳細資訊</h3>
+        <p>點進物品頁面後，可確認拾獲地點、日期、狀態與聯絡方式。</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© RailFind｜鐵道遺失物查詢平台</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
